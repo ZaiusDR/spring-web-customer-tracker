@@ -1,0 +1,12 @@
+# DB Connection properties
+
+db:
+  url: "jdbc:mysql://localhost:3306/crm_tracker?useSSL=false"
+  username: "${DB_USER}"
+  password: "${DB_PASS}"
+
+pool:
+  minSize: "5"
+  maxSize: "20"
+  maxIdleTime: "30000"
+
