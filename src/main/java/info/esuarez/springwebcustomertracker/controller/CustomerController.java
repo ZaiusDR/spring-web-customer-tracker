@@ -58,6 +58,15 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
+    @GetMapping("/deleteCustomer")
+    public String deleteCustomer(@RequestParam int id, Model model) {
+        LOGGER.info("[CustomerController] GET - /customer/deleteCustomer");
+
+        customerService.deleteCustomer(id);
+
+        return "redirect:/customer/list";
+    }
+
     @PostMapping("/processCustomer")
     public String processCustomer(
             @Valid @ModelAttribute("customer") Customer customer,
