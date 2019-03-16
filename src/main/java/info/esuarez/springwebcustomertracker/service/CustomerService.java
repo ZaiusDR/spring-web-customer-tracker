@@ -22,6 +22,12 @@ public class CustomerService {
         return customerDAO.findAllByOrderByLastNameAsc();
     }
 
+    @Transactional
+    public Customer getCustomerById(int id) {
+        return customerDAO.findById(id).orElse(null);
+    }
+
+    @Transactional
     public void saveCustomer(Customer customer) {
         customerDAO.save(customer);
 

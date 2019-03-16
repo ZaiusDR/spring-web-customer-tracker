@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Customer List</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/list-customers.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/add-customer-style.css}">
 </head>
 <body>
 <div id="wrapper">
@@ -14,7 +15,8 @@
 
 <div id="container">
     <form action="#" th:method="POST" th:action="@{/customer/processCustomer}" th:object="${customer}">
-        <h3>Add Customer:</h3>
+        <h3>Customer:</h3>
+        <input type="hidden" th:field="*{id}"/>
         <p>First Name (*): <input type="text" th:field="*{firstName}"/>
             <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red"></span>
         </p>
@@ -26,7 +28,7 @@
         <p>Email (*): <input type="text" th:field="*{email}"/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"></span>
         </p>
-        <input type="submit" value="Add Customer">
+        <input type="submit" value="Submit">
     </form>
 </div>
 </body>
