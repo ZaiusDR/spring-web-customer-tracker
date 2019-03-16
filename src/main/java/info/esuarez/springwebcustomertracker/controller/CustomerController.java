@@ -1,7 +1,7 @@
 package info.esuarez.springwebcustomertracker.controller;
 
 import info.esuarez.springwebcustomertracker.entity.Customer;
-import info.esuarez.springwebcustomertracker.repository.CustomerDAO;
+import info.esuarez.springwebcustomertracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,18 +16,18 @@ public class CustomerController {
 
     private final Logger LOGGER = Logger.getLogger(CustomerController.class.getName());
 
-    private final CustomerDAO customerDAO;
+    private final CustomerService customerService;
 
     @Autowired
-    public CustomerController(CustomerDAO customerDAO) {
-        this.customerDAO = customerDAO;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
     @GetMapping("/list")
     public String listCustomers(Model model) {
         LOGGER.info("[CustomerController] GET - /customer/list");
 
-        Iterable<Customer> customers = customerDAO.findAll();
+        Iterable<Customer> customers = customerService.getCustomers();
 
         model.addAttribute("customers", customers);
 
