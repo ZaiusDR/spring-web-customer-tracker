@@ -13,13 +13,3 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
 
-
-pool:
-  minSize: "5"
-  maxSize: "20"
-  maxIdleTime: "30000"
-
-# Hibernate Factory properties
-
-factory:
-  scanPath: "info.esuarez.springwebcustomertracker.entity"
