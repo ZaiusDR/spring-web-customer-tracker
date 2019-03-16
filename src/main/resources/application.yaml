@@ -1,6 +1,5 @@
-# DB Connection properties
-
 spring:
+  # DB Connection properties
   datasource:
     url: "jdbc:mysql://localhost:3306/crm_tracker?useSSL=false"
     username: "${DB_USER}"
@@ -12,4 +11,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
-
+  #Static Mappings
+  resources:
+    add-mappings: true
