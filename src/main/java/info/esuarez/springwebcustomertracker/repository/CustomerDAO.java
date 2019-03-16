@@ -7,5 +7,5 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface CustomerDAO extends CrudRepository<Customer, Integer> {
-    
+
 }
