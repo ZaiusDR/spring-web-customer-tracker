@@ -1,10 +1,11 @@
 package info.esuarez.springwebcustomertracker.repository;
 
 import info.esuarez.springwebcustomertracker.entity.Customer;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+import javax.transaction.Transactional;
 
-public interface CustomerDAO {
-
-    List<Customer> getCustomers();
+@Transactional
+public interface CustomerDAO extends CrudRepository<Customer, Integer> {
+    
 }

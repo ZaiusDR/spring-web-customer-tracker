@@ -1,7 +1,10 @@
 package info.esuarez.springwebcustomertracker.controller;
 
+import info.esuarez.springwebcustomertracker.repository.CustomerDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,9 +21,15 @@ public class CustomerControllerTest {
 
     private MockMvc mvc;
 
+    @Mock
+    private CustomerDAO customerDAO;
+
+    @InjectMocks
+    private CustomerController customerController;
+
     @Test
     public void shouldReturnListCustomersTemplateName() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new CustomerController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(customerController).build();
 
         MockHttpServletResponse response = mvc.perform(
                 MockMvcRequestBuilders.get("/customer/list").accept(MediaType.ALL))
