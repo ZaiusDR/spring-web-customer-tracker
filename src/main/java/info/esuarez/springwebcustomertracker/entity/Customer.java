@@ -1,6 +1,11 @@
 package info.esuarez.springwebcustomertracker.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import static info.esuarez.springwebcustomertracker.validators.ValidationConstants.NOT_VALID_EMAIL;
+import static info.esuarez.springwebcustomertracker.validators.ValidationConstants.REQUIRED_FIELD_MESSAGE;
 
 @Entity
 @Table(name = "customer")
@@ -11,12 +16,16 @@ public class Customer {
     @Column(name = "id")
     private int id;
 
+    @NotBlank(message = REQUIRED_FIELD_MESSAGE)
     @Column(name = "first_name")
     private String firstName;
 
+    @NotBlank(message = REQUIRED_FIELD_MESSAGE)
     @Column(name = "last_name")
     private String lastName;
 
+    @NotBlank(message = REQUIRED_FIELD_MESSAGE)
+    @Email(message = NOT_VALID_EMAIL)
     @Column(name = "email")
     private String email;
 

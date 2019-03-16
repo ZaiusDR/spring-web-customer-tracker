@@ -21,4 +21,9 @@ public class CustomerService {
     public Iterable<Customer> getCustomers() {
         return customerDAO.findAll();
     }
+
+    public void saveCustomer(Customer customer) {
+        customerDAO.save(customer);
+
+    }
 }
