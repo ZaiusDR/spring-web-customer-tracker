@@ -19,7 +19,7 @@ public class CustomerService {
 
     @Transactional
     public Iterable<Customer> getCustomers() {
-        return customerDAO.findAll();
+        return customerDAO.findAllByOrderByLastNameAsc();
     }
 
     public void saveCustomer(Customer customer) {
