@@ -14,3 +14,8 @@ spring:
   #Static Mappings
   resources:
     add-mappings: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
