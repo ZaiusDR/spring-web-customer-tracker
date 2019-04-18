@@ -4,10 +4,7 @@ import info.esuarez.springwebcustomertracker.entity.Customer;
 import info.esuarez.springwebcustomertracker.exception.CustomerNotFoundException;
 import info.esuarez.springwebcustomertracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -33,6 +30,13 @@ public class CustomerRestController {
         if (customer == null) {
             throw new CustomerNotFoundException("Customer id not found - " + customerId);
         }
+
+        return customer;
+    }
+
+    @PostMapping("/customers")
+    public Customer addCustomer(@RequestBody Customer customer) {
+        customerService.saveCustomer(customer);
 
         return customer;
     }
